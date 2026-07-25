@@ -1,0 +1,390 @@
+/*css for page management*/
+@font-face{
+	font-family: "MyCustomFont";
+    src:url("fonts/outfit.woff");
+}
+*{font-family: "MyCustomFont",arial;font-weight:bold}
+h3{font-size:1.5em}
+p{font-size:1.3em}
+
+
+#container{
+	background-image: url("images/ricefield.jpg");
+	background-size:cover;
+	background-position:center;
+	height:100vh;
+}
+
+.page{width:100%;height:100%}
+nav ul li{display:inline}
+
+
+#hamIcon{display:none}
+@media (max-width:800px) {
+	nav, ul, li{display:block}
+	
+	#hamIcon{display:block}
+	
+	nav>ul, li{display:none}
+    
+}
+.menuShow{display:block}
+
+/*Nav CSS*/
+button{
+	transition:0.3s;
+	padding:15px;
+	border-radius:15px;
+	background:rgba(135, 206, 235, 0.3);
+	width:17vw;
+	font-size:1.1em;
+}
+button:hover{
+	transition:0.3s;
+	background:rgba(65, 105, 225, 0.6);
+	color: #B3EBF2;
+}
+@media (max-width:800px) {
+	button{
+	transition:0.3s;
+	padding:15px;
+	border-radius:15px;
+	background:rgba(135, 206, 235, 0.3);
+	width:15vw;
+	font-size:0.6em;
+}
+button:hover{
+	transition:0.3s;
+	background:rgba(65, 105, 225, 0.6);
+	color: #B3EBF2;
+}
+}
+
+/*page layout*/
+#container{
+	display:grid;
+	grid-template-columns: 1fr;
+    grid-template-rows: 1fr 0.5fr 8.5fr 2.5fr;
+}
+#container>header{
+	grid-column: 1/2;
+	grid-row: 1/2;
+	text-align:center;
+}
+#container>nav{
+	grid-column: 1/2;
+	grid-row: 2/3;
+	text-align:center;
+}
+#pagecontainer{
+	grid-column: 1/2;
+	grid-row: 3/4;
+}
+#mainFooter{
+	grid-column:1/2;
+	grid-row:4/5;
+	text-align:center;
+	background:orange;
+}
+
+/*page1*/
+#page1{
+	display:grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 2fr 2fr 2fr 0.5fr;
+	align-items:center;
+	text-align:center;
+}
+#longgrain{
+	grid-column: 1/3;
+	grid-row: 1/2;
+	background: rgb(255, 219, 187);
+	border:3px white solid;
+}
+#lgimage{
+	grid-column: 3/4;
+	grid-row: 1/2;
+	text-align:center;
+	max-width:337px;
+	border: 3px white solid;
+	background: rgba(255, 255, 224,0.5);
+}
+#mgimage{
+	grid-column: 1/2;
+	grid-row: 2/3;
+	max-width:300px;
+	max-height:430px;
+	border: 3px white solid;
+	background: rgba(255, 255, 224,0.5);
+}
+#mediumgrain{
+	grid-column: 2/4;
+	grid-row:2/3;
+	background: rgb(255, 219, 187);
+	border:3px white solid;
+}
+#shortgrain{
+	grid-column: 1/3;
+	grid-row: 3/4;
+	background: rgb(255, 219, 187);
+	border:3px white solid;
+}
+#sgimage{
+	grid-column: 3/4;
+	grid-row: 3/4;
+    text-align:center;
+	max-width:450px;
+	max-height:330px;
+	border: 3px white solid;
+	background: rgba(255, 255, 224,0.5);
+}
+#page1footer{
+	grid-column: 1/4;
+	grid-row:4/5;
+	background: rgba(255, 255, 224,0.5);
+}
+#page1footer>ul>li{list-style-type:none;display:inline;}
+#page1footer>ul>li>a{font-size:1.3em}
+
+/*Page2*/
+#page2{
+	display:grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr 0.9fr 1fr 1fr 1fr;
+	text-align:center;
+}
+#carbo{
+	grid-column:1/2;
+	grid-row:1/2;
+    background: rgb(255, 219, 187);
+	border:3px white solid;
+}
+#page2text{
+	grid-column:1/2;
+	grid-row:2/3;
+    background: rgb(255, 219, 187);
+	font-size:1.2em;
+}
+#vitamins{
+	grid-column:1/2;
+	grid-row:3/4;
+    background: rgb(255, 219, 187);
+	border:3px white solid;
+}
+#minerals{
+	grid-column:1/2;
+	grid-row:4/5;
+    background: rgb(255, 219, 187);
+}
+#page2footer{
+	grid-column:1/2;
+	grid-row:5/6;
+    background: rgba(255, 255, 224,0.7);
+}
+
+/*Page3*/
+#page3{
+	display:grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 0.7fr 0.2fr 1.2fr 0.2fr;
+	grid-gap:5px;
+	text-align:center;
+	align-items:center;
+}
+#bnf1{
+	grid-column: 1/2;
+	grid-row: 1/2;
+	background: rgb(255, 219, 187);
+	border:3px white solid;
+}
+#bnfimg1{
+	grid-column:2/3;
+	grid-row: 1/2;
+	background: rgba(255, 255, 224,0.5);
+	max-width:400px;
+	max-height:300px;
+}
+#page3text{
+	grid-column: 1/3;
+	grid-row: 2/3;
+	background: rgb(255, 219, 187);
+	border:3px white solid;
+	font-size:1.2em;
+}
+#bnf2{
+	grid-column: 1/2;
+	grid-row: 3/4;
+	background: rgb(255, 219, 187);
+	border:3px white solid;
+}
+#bnf3{
+	grid-column: 2/3;
+	grid-row: 3/4;
+	background: rgb(255, 219, 187);
+	border:3px white solid;
+}
+#page3footer{
+	grid-column: 1/3;
+	grid-row: 4/5;
+	background: rgba(255, 255, 224,0.5);
+}
+
+#page3footer>ul>li{list-style-type:none;display:inline;}
+#page3footer>ul>li>a{font-size:1.3em}
+
+#page4{display:flex;flex-wrap:wrap;}
+#page4container{
+	flex:100%;
+    background:rgb(255, 219, 187);
+	border:5px white solid;
+	font-size:1.2em;
+}
+fieldset{flex:100%;border:2px solid grey;}
+#spritecontainer{
+	flex:100%;
+	height:400px;
+    background:white;
+	text-align:center;
+	align-content:center;
+}
+#page4footer{
+	flex:100%;
+	background:rgba(255, 255, 224,0.5);
+}
+#page4footer>p{text-align:center;}
+
+/*Image Sprite*/
+.sprite {
+	background: url('images/sprite_sheet.png') no-repeat 0 0;
+	width: 666px;
+	height: 500px;
+}
+.sprite-rice1 {
+     height: 200px;
+     width: 266px;
+     background-position: -400px -0px;
+ }
+ .sprite-rice2 {
+     height: 200px;
+     width: 266px;
+     background-position: -0px -300px;
+ }
+ .sprite-rice3 {
+     height: 300px;
+     width: 200px;
+     background-position: -0px -0px;
+ }
+ .sprite-rice4 {
+     height: 300px;
+     width: 200px;
+     background-position: -200px -0px;
+ }
+
+/*Page5*/
+#page5{
+	display:flex;
+	flex-wrap:wrap;
+}
+#overview{
+	flex:100%;
+	background:rgba(255, 255, 255, 0.3);
+	text-align:center;
+}
+#gameContainer{
+	flex:100%;
+	position:relative;
+	background:rgb(255, 219, 187);
+	height: 650px;
+    border:3px white solid;
+}
+#ricegrain{
+	position:absolute;
+}
+#page5footer{
+	flex:100%;
+	background: rgba(255, 255, 224,0.5);
+	text-align:center;
+	font-size:1.5em;
+	height:5%;
+}
+#miniGameReset{
+	background:white;
+}
+#miniGameReset:hover{
+	background:#87CEEB;
+	color:black;
+}
+
+@keyframes riceFrames{
+0%{transform: translateY(0);} /*used translateY to move the image up and down about its position instead of moving to the top of the page*/
+25%{transform: translateY(10px);}
+50%{transform: translateY(-10px);}
+75%{transform: translateY(10px);}
+100%{transform: translateY(0);}
+}
+.anim{position:relative; animation: riceFrames 0.3s;}
+
+/*mobile layout*/
+@media(max-width:800px){
+	#page1{display:flex;flex-wrap:wrap;font-size:0.7em;}
+	#longgrain{flex:100%;}
+	#lgimage{flex:100%;margin-left:auto;margin-right:auto;} /*i used margin auto here to center the image because align-content does not work here*/
+	#mediumgrain{flex:100%;}
+	#mgimage{flex:100%;margin-left:auto;margin-right:auto;}
+	#shortgrain{flex:100%;}
+	#sgimage{flex:100%;margin-left:auto;margin-right:auto;}
+	#page1footer{flex:100%;}
+	
+	#page2{display:flex;flex-wrap:wrap;align-items:center;font-size:0.7em;}
+	#carbo{flex:100%;}
+	#page2text{flex:100%;}
+	#vitamins{flex:100%;}
+	#minerals{flex:100%;}
+	#page2footer{flex:100%;}
+	
+	#page3{display:flex;flex-wrap:wrap;align-items:center;font-size:0.7em;}
+	#bnf1{flex:100%;}
+	#bnfimg1{flex:100%;margin-left:auto;margin-right:auto;}
+	#page3text{flex:100%;}
+	#bnf2{flex:100%;}
+	#bnf3{flex:100%;}
+	#page3footer{flex:100%;}
+	
+	#page4{text-align:center;font-size:0.8em;}
+	#btnSubmit, #btnReset{background:white;color:black;}
+	#spritecontainer{height:300px;}
+	.sprite {
+	background: url('images/sprite_sheet.png') no-repeat 0 0;
+	width: 666px;
+	height: 500px;
+    }
+	.sprite-rice1 {
+		 height: 100px;
+		 width: 133px;
+		 background-position: -400px -0px;
+	 }
+	 .sprite-rice2 {
+		 height: 100px;
+		 width: 133px;
+		 background-position: -0px -300px;
+	 }
+	 .sprite-rice3 {
+		 height: 150px;
+		 width: 100px;
+		 background-position: -0px -0px;
+	 }
+	 .sprite-rice4 {
+		 height: 150px;
+		 width: 100px;
+		 background-position: -200px -0px;
+	 }
+	
+	#page5{display:flex;flex-wrap:wrap;align-items:center;}
+	#overview{flex:100%;font-size:0.8em;}
+	#gameContainer{flex:100%;}
+	#page5footer{flex:100%;}
+	
+	#miniGameReset{background:white;}
+	
+	#qrcodeImg{display:none;}
+}
