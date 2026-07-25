@@ -352,7 +352,7 @@ fieldset{flex:100%;border:2px solid grey;}
 	
 	#page4{text-align:center;font-size:0.8em;}
 	#btnSubmit, #btnReset{background:white;color:black;}
-	#spritecontainer{height:300px;}
+	#spritecontainer{height:350px;}
 	.sprite {
 	background: url('images/sprite_sheet.png') no-repeat 0 0;
 	width: 666px;
