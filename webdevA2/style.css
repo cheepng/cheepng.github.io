@@ -305,8 +305,9 @@ fieldset{flex:100%;border:2px solid grey;}
 	background: rgba(255, 255, 224,0.5);
 	text-align:center;
 	font-size:1.5em;
-	height:5%;
+	height:20%;
 }
+#page5footer>p{font-size:0.9em}
 #miniGameReset{
 	background:white;
 }
@@ -314,6 +315,14 @@ fieldset{flex:100%;border:2px solid grey;}
 	background:#87CEEB;
 	color:black;
 }
+#startMiniGame{
+	background:white;
+}
+#startMiniGame:hover{
+	background:#87CEEB;
+	color:black;
+}
+#gameContainer>button{display:inline;}
 
 @keyframes riceFrames{
 0%{transform: translateY(0);} /*used translateY to move the image up and down about its position instead of moving to the top of the page*/
@@ -323,6 +332,8 @@ fieldset{flex:100%;border:2px solid grey;}
 100%{transform: translateY(0);}
 }
 .anim{position:relative; animation: riceFrames 0.3s;}
+
+.noinclude{display:none}
 
 /*mobile layout*/
 @media(max-width:800px){
