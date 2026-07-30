@@ -145,18 +145,37 @@ function ResetAns(){
 /*Mini Game*/
 var miniGameScore = 0;
 var counter = 0;
+var startCount = 0;
+var timeCount = 0;
 const gameContainer = document.getElementById("gameContainer");
 const scoreboard = document.getElementById("scoreboard");
 const munchAudio = new Audio("audio/eating.mp3");
+const failAudio = new Audio("audio/fail.mp3");
 const resetBtn = document.querySelector("#miniGameReset");
+const startBtn = document.querySelector("#startMiniGame");
+const timer = document.querySelector("#timer");
+const result = document.querySelector("#MGTitle");
 
-setInterval(generateRice, 700);
+
+setInterval(generateRice, 1200);
+setInterval(generateBrownRice, 700);
+setInterval(timeDecrement, 1000)
 
 gameContainer.addEventListener("click", eventFn);
 resetBtn.addEventListener("click", function() {
 	scoreboard.innerHTML = "Score: 0";
 	miniGameScore = 0;
-	resetBtn.style.background="white"; //added this hear so no unintended color changes will happen on mobile
+	resetBtn.style.background="";
+	result.innerHTML = "Resetted";
+	startCount = 0;
+	timeCount = 0;
+	timer.innerHTML = "Has not started";
+});
+startBtn.addEventListener("click", function() {
+	miniGameScore = 0;
+	timeCount = 40;
+	startCount = 1;
+	startBtn.style.background = ""
 });
 
 
@@ -164,35 +183,84 @@ function GetRandom(min,max) {
 	return Math.round(Math.random() * (max - min)) + min;
 }
 function generateRice(){
-	if (page5.classList.contains("check") && (counter < 15)) { //this if statement prevents the rice images from generating when the page is not shown and to avoid having too many images in the page
+	if (counter < 50 && timeCount != 0) { //this if statement prevents the rice images from generating when the page is not shown and to avoid having too many images in the page
 		let rice = document.createElement("img");
-		rice.src = "images/ricegrain.jpg";
+		rice.src = "images/rice.png";
 		rice.alt = "rice";
+		rice.classList.add("rice")
 		if (window.innerWidth <= 800) {
 			rice.style.left = GetRandom(0,250)+"px";
-		    rice.style.top = GetRandom(50,400)+"px";
+		    rice.style.top = GetRandom(100,400)+"px";
 		    rice.style.position = "absolute";
 		    gameContainer.appendChild(rice);
 		    counter++;
 		}
 		else {
 			rice.style.left = GetRandom(0,800)+"px";
-			rice.style.top = GetRandom(50,400)+"px";
+			rice.style.top = GetRandom(100,400)+"px";
 			rice.style.position = "absolute";
 			gameContainer.appendChild(rice);
 			counter++;
 		}
 	}
 }
-
+function generateBrownRice(){
+	if (counter < 50 && timeCount != 0) { //this if statement prevents the rice images from generating when the page is not shown and to avoid having too many images in the page
+		let brownRice = document.createElement("img");
+		brownRice.src = "images/brownrice.png";
+		brownRice.alt = "brown rice";
+		brownRice.className = "brownrice";
+		if (window.innerWidth <= 800) {
+			brownRice.style.left = GetRandom(0,250)+"px";
+		    brownRice.style.top = GetRandom(100,400)+"px";
+		    brownRice.style.position = "absolute";
+		    gameContainer.appendChild(brownRice);
+		    counter++;
+		}
+		else {
+			brownRice.style.left = GetRandom(0,1200)+"px";
+			brownRice.style.top = GetRandom(100,400)+"px";
+			brownRice.style.position = "absolute";
+			gameContainer.appendChild(brownRice);
+			counter++;
+		}
+	}
+}
+function timeDecrement() {
+	if (timeCount != 0) {
+	    timeCount--;
+	    timer.innerHTML = "Time: "+timeCount;
+	}
+	else if (timeCount == 0 && startCount == 1) {
+		if (miniGameScore >= 30) {
+			result.innerHTML = "Good Job! You win!";
+		}
+		else {
+			result.innerHTML = "Sorry, you lost.";
+		}
+		startCount = 0;
+	}
+}
 function eventFn(evt) {
 	var sender = evt.target;
-	if (sender.id != "gameContainer" && sender.id != "miniGameReset") {
-		 miniGameScore++;
-		 sender.classList.add("anim");
-		 munchAudio.play();
-	     setTimeout(function() {sender.remove();}, 300);
-		 scoreboard.innerHTML = "Score: "+miniGameScore;
-		 counter--;
+	if (sender.id != "gameContainer" && sender.id != "miniGameReset" && sender.id != "startMiniGame" && sender.id != "MGTitle") {
+		 if (sender.className == "brownrice") {
+			 miniGameScore++;
+			 sender.classList.add("anim");
+			 munchAudio.play();
+			 setTimeout(function() {sender.remove();}, 300);
+			 scoreboard.innerHTML = "Score: "+miniGameScore;
+			 counter--;
+		 }
+		 else {
+			 if (miniGameScore > 0) {
+			     miniGameScore--
+			 }
+			 sender.classList.add("anim");
+			 failAudio.play();
+			 setTimeout(function() {sender.remove();}, 300);
+			 scoreboard.innerHTML = "Score: "+miniGameScore;
+			 counter--;
+		 }
 	}
 }
